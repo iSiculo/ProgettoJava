@@ -5,7 +5,9 @@ pipeline {
     MAJOR_VERSION = 1
   }
 
-  stage('Unit Tests') {
+  stages{
+
+    stage('Unit Tests') {
       agent {
         label 'apache'
       }
@@ -15,7 +17,6 @@ pipeline {
       }
     }
 
-  stages{
     stage('build') {
       steps {
         sh 'ant -f build.xml -v'
